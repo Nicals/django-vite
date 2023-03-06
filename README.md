@@ -208,6 +208,8 @@ You can redefine those variables in your `settings.py` :
 - `DJANGO_VITE_LEGACY_POLYFILLS_MOTIF` : The motif used to find the assets for polyfills inside the `manifest.json` (only if you use [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)).
 - `DJANGO_VITE_STATIC_URL_PREFIX` : prefix directory of your static files built by Vite.
   (default : `""`)
+- `DJANGO_VITE_SERVE_BUILD`: Set to True to serve a production build of your assets from django static folder. With `DJANGO_VITE_DEV_MODE` False, this options allow to allow django dev server to serve assets without the need 
+  to have the vite.js dev server running. Do not set to `True` in production. (default: `False`)
 
   - Use it if you want to avoid conflicts with other static files in your project.
   - It may be used with `STATICFILES_DIRS`.

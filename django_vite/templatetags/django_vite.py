@@ -44,9 +44,12 @@ DJANGO_VITE_STATIC_URL_PREFIX = getattr(
     settings, "DJANGO_VITE_STATIC_URL_PREFIX", ""
 )
 
+# Serve built assets from django static folder if vite.js is not running
+DJANGO_VITE_SERVE_BUILD = getattr(settings, 'DJANGO_VITE_SERVE_BUILD', False)
+
 DJANGO_VITE_STATIC_ROOT = (
     DJANGO_VITE_ASSETS_PATH
-    if DJANGO_VITE_DEV_MODE
+    if DJANGO_VITE_DEV_MODE or DJANGO_VITE_SERVE_BUILD
     else Path(settings.STATIC_ROOT) / DJANGO_VITE_STATIC_URL_PREFIX
 )
 
